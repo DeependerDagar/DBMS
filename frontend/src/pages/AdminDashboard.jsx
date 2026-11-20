@@ -82,7 +82,7 @@ const AdminDashboard = () => {
     if (!window.confirm(`Are you sure you want to permanently delete "${title}" from the database and frontend?`)) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/movies/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/movies/${id}`, {
         method: 'DELETE'
       });
       const data = await response.json();
