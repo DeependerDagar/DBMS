@@ -25,8 +25,8 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     try {
       const [moviesRes, usersRes] = await Promise.all([
-        fetch('http://localhost:5000/api/movies').then((r) => r.json()),
-        fetch('http://localhost:5000/api/admin/users').then((r) => r.json()).catch(() => ({ data: [] }))
+        fetch('https://cineplex-backend-ohfi.onrender.com/api/movies').then((r) => r.json()),
+        fetch('https://cineplex-backend-ohfi.onrender.com/api/admin/users').then((r) => r.json()).catch(() => ({ data: [] }))
       ]);
 
       if (moviesRes?.data) setMovies(moviesRes.data);
