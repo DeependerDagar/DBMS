@@ -22,8 +22,8 @@ const Login = () => {
     setLoading(true);
 
     const endpoint = isRegister
-      ? `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/auth/register`
-      : `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/auth/login`;
+      ? `${import.meta.env.VITE_API_URL || 'https://cineplex-backend-ohfi.onrender.com/api'}/auth/register`
+      : `${import.meta.env.VITE_API_URL || 'https://cineplex-backend-ohfi.onrender.com/api'}/auth/login`;
 
     try {
       const response = await fetch(endpoint, {
