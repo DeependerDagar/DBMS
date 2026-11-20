@@ -48,7 +48,7 @@ const AdminDashboard = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/admin/movies', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/movies`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newMovie)
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
     if (!window.confirm(`Are you sure you want to permanently delete "${title}" from the database and frontend?`)) return;
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/movies/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || `${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}`}/admin/movies/${id}`, {
         method: 'DELETE'
       });
       const data = await response.json();
@@ -104,7 +104,7 @@ const AdminDashboard = () => {
   const handleRoleToggle = async (targetUser) => {
     const nextRole = targetUser.role === 'admin' ? 'user' : 'admin';
     try {
-      const response = await fetch('http://localhost:5000/api/admin/users/role', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/users/role`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
